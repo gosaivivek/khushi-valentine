@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Rutu 🎀</title>
+
+<style>
+body{
+  margin:0;
+  font-family: 'Poppins', sans-serif;
+  background:#0a0a0f;
+  color:white;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  height:100vh;
+  text-align:center;
+  overflow:hidden;
+}
+
+.container{
+  max-width:90%;
+}
+
+h1{
+  font-size:2rem;
+  font-weight:600;
+  animation: fadeIn 1.5s ease-in-out;
+}
+
+.name{
+  color:#ff9ecb;
+}
+
+button{
+  padding:12px 22px;
+  margin:10px;
+  font-size:1rem;
+  border:none;
+  border-radius:25px;
+  cursor:pointer;
+}
+
+.yes{
+  background:#ff4d6d;
+  color:white;
+  transition: transform 0.35s ease;   /* IMPORTANT */
+}
+
+.no{
+  background:#444;
+  color:white;
+}
+
+@keyframes fadeIn{
+  from{opacity:0; transform:translateY(15px);}
+  to{opacity:1; transform:translateY(0);}
+}
+</style>
+</head>
+
+<body>
+
+<div class="container" id="text"></div>
+
+<script>
+const lines = [
+  "Hey <span class='name'>Rutu 🎀</span> ❤️",
+  "I want to tell you something...",
+  "From the day you came into my life ✨",
+  "Everything feels more beautiful 💖",
+  "Your smile is my favorite habit 😊",
+  "Your presence feels like home 🏡",
+  "So today I want to ask you… 💕"
+];
+
+let i = 0;
+const textBox = document.getElementById("text");
+
+function showText(){
+  if(i < lines.length){
+    textBox.innerHTML = "<h1>" + lines[i] + "</h1>";
+    i++;
+    setTimeout(showText, 2600);
+  } else {
+    textBox.innerHTML = `
+      <h1><span class='name'>Rutu 🎀</span>, will you be my Valentine? 🌹</h1>
+      <button class="yes" id="yesBtn" onclick="yes()">YES ❤️</button>
+      <button class="no" id="noBtn" onclick="noClicked()">No 😏</button>
+    `;
+  }
+}
+showText();
+
+function yes(){
+  textBox.innerHTML = "<h1>Yayyy 😍<br><span class='name'>Rutu 🎀</span>, you just made me the happiest person ❤️</h1>";
+}
+
+// --------- YOUR EXACT SEQUENCE (WORKING VERSION) ----------
+let noClickCount = 0;
+
+function noClicked(){
+  const yesBtn = document.getElementById("yesBtn");
+  const noBtn = document.getElementById("noBtn");
+
+  noClickCount++;
+
+  // Gradual smooth growth
+  let scale = 1 + (noClickCount * 0.20);
+  yesBtn.style.transform = `scale(${scale})`;
+
+  if(noClickCount === 1){
+    noBtn.innerHTML = "Are you sure? 🤔";
+  }
+  else if(noClickCount === 2){
+    noBtn.innerHTML = "Really sure? 🥺";
+  }
+  else if(noClickCount === 3){
+    noBtn.innerHTML = "Pookie please 🥹";
+  }
+  else if(noClickCount === 4){
+    noBtn.innerHTML = "Just think about it 💗";
+  }
+  else if(noClickCount === 5){
+    noBtn.innerHTML = "If you say no, I will be really sad… 🥺";
+  }
+  else if(noClickCount >= 6){
+    noBtn.style.display = "none";   // NO gayab
+    yesBtn.style.transform = "scale(2.2)"; // Only big YES
+  }
+}
+</script>
+
+</body>
+</html>
