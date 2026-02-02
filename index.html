@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>For Khushu 🎀</title>
+<title>For Khushi 💖</title>
 
 <style>
 body{
@@ -19,9 +19,7 @@ body{
   overflow:hidden;
 }
 
-.container{
-  max-width:90%;
-}
+.container{ max-width:90%; }
 
 h1{
   font-size:2rem;
@@ -29,9 +27,7 @@ h1{
   animation: fadeIn 1.5s ease-in-out;
 }
 
-.name{
-  color:#ff9ecb;
-}
+.name{ color:#ff9ecb; }
 
 button{
   padding:12px 22px;
@@ -45,13 +41,10 @@ button{
 .yes{
   background:#ff4d6d;
   color:white;
-  transition: transform 0.35s ease;   /* IMPORTANT */
+  transition: transform 0.35s ease;
 }
 
-.no{
-  background:#444;
-  color:white;
-}
+.no{ background:#444; color:white; }
 
 @keyframes fadeIn{
   from{opacity:0; transform:translateY(15px);}
@@ -66,7 +59,7 @@ button{
 
 <script>
 const lines = [
-  "Hey <span class='name'>khushu 🎀</span> ❤️",
+  "Hey <span class='name'>Khushi 💖</span> ❤️",
   "I want to tell you something...",
   "From the day you came into my life ✨",
   "Everything feels more beautiful 💖",
@@ -85,7 +78,7 @@ function showText(){
     setTimeout(showText, 2600);
   } else {
     textBox.innerHTML = `
-      <h1><span class='name'>khushu 🎀</span>, will you be my Valentine? 🌹</h1>
+      <h1><span class='name'>Khushi 💖</span>, will you be my Valentine? 🌹</h1>
       <button class="yes" id="yesBtn" onclick="yes()">YES ❤️</button>
       <button class="no" id="noBtn" onclick="noClicked()">No 😏</button>
     `;
@@ -94,10 +87,9 @@ function showText(){
 showText();
 
 function yes(){
-  textBox.innerHTML = "<h1>Yayyy 😍<br><span class='name'>khushu 🎀</span>, you just made me the happiest person ❤️</h1>";
+  textBox.innerHTML = "<h1>Yayyy 😍<br><span class='name'>Khushi 💖</span>, you just made me the happiest person ❤️</h1>";
 }
 
-// --------- YOUR EXACT SEQUENCE (WORKING VERSION) ----------
 let noClickCount = 0;
 
 function noClicked(){
@@ -106,7 +98,6 @@ function noClicked(){
 
   noClickCount++;
 
-  // Gradual smooth growth
   let scale = 1 + (noClickCount * 0.20);
   yesBtn.style.transform = `scale(${scale})`;
 
@@ -126,12 +117,11 @@ function noClicked(){
     noBtn.innerHTML = "If you say no, I will be really sad… 🥺";
   }
   else if(noClickCount >= 6){
-    noBtn.style.display = "none";   // NO gayab
-    yesBtn.style.transform = "scale(2.2)"; // Only big YES
+    noBtn.style.display = "none";
+    yesBtn.style.transform = "scale(2.2)";
   }
 }
 </script>
 
 </body>
 </html>
-
